@@ -1,7 +1,6 @@
 package com.practica.examen.CodeMaster.controllers;
 
 import com.practica.examen.CodeMaster.entities.PersonaEntity;
-import com.practica.examen.CodeMaster.entities.TipoPersonaEntity;
 import com.practica.examen.CodeMaster.services.IPersonaService;
 import com.practica.examen.CodeMaster.services.impl.TipoPersonaService;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +25,9 @@ public class PersonaController {
 
     @GetMapping("nuevo-persona")
     public String nuevo(Model model) {
-        model.addAttribute("nuevo", new TipoPersonaEntity());
-        model.addAttribute("tipos-persona", tPService.listar());
-        return "/pages/nuevo-persona";
+        model.addAttribute("nuevo", new PersonaEntity());
+        model.addAttribute("tiposPersona", tPService.listar());
+        return "pages/nuevo-persona";
     }
 
     @PostMapping("/guardar-persona")

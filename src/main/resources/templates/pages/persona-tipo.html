@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{plantilla/index :: layout('Tipo de persona', ~{::#contenido-principal})}" dir="ltr" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+<div id="contenido-principal">
+    <div class="col-md-12">
+        <div class="card">
+            <form class="form-horizontal">
+                <div class="card-body">
+                    <h4 class="card-title">Personal Info</h4>
+                    <div class="form-group row">
+                        <label for="fname"
+                               class="col-sm-3 text-end control-label col-form-label">First Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="fname"
+                                   placeholder="First Name Here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastname" class="col-sm-3 text-end control-label col-form-label">Last
+                            Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="lastname"
+                                   placeholder="Last Name Here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password"
+                               class="col-sm-3 text-end control-label col-form-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="password"
+                                   placeholder="Password Here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email1"
+                               class="col-sm-3 text-end control-label col-form-label">Company</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="email1"
+                                   placeholder="Company Name Here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="cono1"
+                               class="col-sm-3 text-end control-label col-form-label">Contact No</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="required form-control" id="cono1"
+                                   placeholder="Contact No Here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="single-select"
+                               class="col-sm-3 text-end control-label col-form-label">Single Select</label>
+                        <div class="col-md-9">
+                            <select id="single-select" class="select2 form-select shadow-none"
+                                    style="width: 100%; height:36px;">
+                                <option>Select</option>
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="date-mask"
+                               class="col-sm-3 text-end control-label col-form-label">Date Mask <small class="text-muted">dd/mm/yyyy</small></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control date-inputmask" id="date-mask"
+                                   placeholder="Enter Date">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="phone-mask"
+                               class="col-sm-3 text-end control-label col-form-label">Phone <small class="text-muted">(999) 999-9999</small></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control phone-inputmask" id="phone-mask"
+                                   placeholder="Enter Phone Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="message"
+                               class="col-sm-3 text-end control-label col-form-label">Message</label>
+                        <div class="col-sm-9">
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

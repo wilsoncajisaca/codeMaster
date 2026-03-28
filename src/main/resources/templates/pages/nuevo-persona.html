@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{plantilla/index :: layout('Nueva persona', ~{::#contenido-principal})}" dir="ltr" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+<div id="contenido-principal">
+    <div class="col-md-12">
+        <div class="card">
+            <form th:action="@{/guardar-persona}" th:object="${nuevo}" method="post" class="form-horizontal">
+                <div class="card-body">
+                    <h4 class="card-title">Registro</h4>
+
+                    <div class="form-group row">
+                        <label for="tipoPersonaId"
+                               class="col-sm-3 text-end control-label col-form-label">Tipo usuario</label>
+                        <div class="col-sm-9">
+                            <select th:field="*{tipoPersona.idTipoPersona}" id="tipoPersonaId" class="form-control" required>
+                                <option value="">Seleccione</option>
+                                <option th:each="tipo : ${tiposPersona}"
+                                        th:value="${tipo.idTipoPersona}"
+                                        th:text="${tipo.nombre}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="tipoIdentificacion"
+                               class="col-sm-3 text-end control-label col-form-label">Tipo identificacion</label>
+                        <div class="col-sm-9">
+                            <select th:field="*{tipoIdentificacion}" id="tipoIdentificacion" class="form-control" required>
+                                <option value="">Seleccione</option>
+                                <option value="CEDULA">Cedula</option>
+                                <option value="PASAPORTE">Pasaporte</option>
+                                <option value="RUC">RUC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="identificacion"
+                               class="col-sm-3 text-end control-label col-form-label">Numero identificacion</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{identificacion}" type="text" class="form-control" id="identificacion"
+                                   placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nombres" class="col-sm-3 text-end control-label col-form-label">Nombres
+                            </label>
+                        <div class="col-sm-9">
+                            <input th:field="*{nombres}" type="text" class="form-control" id="nombres"
+                                   placeholder="Codigo referencia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="apellidos" class="col-sm-3 text-end control-label col-form-label">Apellidos
+                        </label>
+                        <div class="col-sm-9">
+                            <input th:field="*{apellidos}" type="text" class="form-control" id="apellidos"
+                                   placeholder="Codigo referencia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="sexo" class="col-sm-3 text-end control-label col-form-label">Sexo</label>
+                        <div class="col-sm-9">
+                            <select th:field="*{sexo}" id="sexo" class="form-control" required>
+                                <option value="">Seleccione</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fechaNacimiento"
+                               class="col-sm-3 text-end control-label col-form-label">Fecha Nacimiento <small class="text-muted">yyyy-MM-dd</small></label>
+                        <div class="col-sm-9">
+                            <input th:field="*{fechaNacimiento}" type="date" class="form-control" id="fechaNacimiento"
+                                   placeholder="yyyy-MM-dd" pattern="\d{4}-\d{2}-\d{2}"
+                                   title="Por favor ingrese la fecha en formato yyyy-MM-dd (Ej: 2005-03-15)"
+                                   required>
+                        </div>
+                    </div>
+
+<!--                    <div class="form-group row">-->
+<!--                        <label for="password"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Password</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="password" class="form-control" id="password"-->
+<!--                                   placeholder="Password Here">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group row">-->
+<!--                        <label for="email1"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Company</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="text" class="form-control" id="email1"-->
+<!--                                   placeholder="Company Name Here">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group row">-->
+<!--                        <label for="cono1"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Contact No</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="text" class="required form-control" id="cono1"-->
+<!--                                   placeholder="Contact No Here">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group row">-->
+<!--                        <label for="single-select"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Single Select</label>-->
+<!--                        <div class="col-md-9">-->
+<!--                            <select id="single-select" class="select2 form-select shadow-none"-->
+<!--                                    style="width: 100%; height:36px;">-->
+<!--                                <option>Select</option>-->
+<!--                                <optgroup label="Alaskan/Hawaiian Time Zone">-->
+<!--                                    <option value="AK">Alaska</option>-->
+<!--                                    <option value="HI">Hawaii</option>-->
+<!--                                </optgroup>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group row">-->
+<!--                        <label for="phone-mask"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Phone <small class="text-muted">(999) 999-9999</small></label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="text" class="form-control phone-inputmask" id="phone-mask"-->
+<!--                                   placeholder="Enter Phone Number">-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group row">-->
+<!--                        <label for="message"-->
+<!--                               class="col-sm-3 text-end control-label col-form-label">Message</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <textarea id="message" class="form-control"></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

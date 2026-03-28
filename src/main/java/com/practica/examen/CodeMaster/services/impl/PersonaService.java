@@ -6,6 +6,7 @@ import com.practica.examen.CodeMaster.services.IMatriculaService;
 import com.practica.examen.CodeMaster.services.IPersonaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,6 @@ public class PersonaService implements IPersonaService {
     private final IMatriculaService matriculaService;
     private final String CODIGO_DOCENTE = "DOC";
     private final String CODIGO_ESTUDIANTE = "EST";
-    private final Integer ESTUDIANTE_NO_MATRICULADO = 0;
 
     @Override
     public void guardar(PersonaEntity estudianteEntity) {
@@ -32,6 +32,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<PersonaEntity> listar() {
         return this.repository.findByEstadoTrue();
     }

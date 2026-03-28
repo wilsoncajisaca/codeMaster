@@ -3,6 +3,7 @@ package com.practica.examen.CodeMaster.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -31,12 +32,10 @@ public class PersonaEntity implements Serializable {
     private Integer edad;
     private String sexo;
 
-    @Column(nullable = false)
-    private String correo;
-
     private Boolean estado=Boolean.TRUE;
 
     @Transient
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
     @ManyToOne(fetch = FetchType.LAZY)

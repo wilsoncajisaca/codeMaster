@@ -23,7 +23,7 @@ public class TipoPersonaController {
     @GetMapping("nuevo-tipo-persona")
     public String nuevo(Model model) {
         model.addAttribute("nuevo", new TipoPersonaEntity());
-        return "/pages/nuevo-tipo-persona";
+        return "pages/nuevo-tipo-persona";
     }
 
     @PostMapping("/guardar-tipo-persona")
